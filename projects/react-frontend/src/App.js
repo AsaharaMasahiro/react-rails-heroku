@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { FC, useEffect, useState } from "react";
+import ClippedDrawerAppBar from "./components/clippedDrawerAppBar";
+import CouponButton from "./components/couponButton";
 
 //サーバー接続の切り替え
 let api;
@@ -12,32 +12,20 @@ switch (window.location.host) {
         api = process.env.REACT_APP_SERVER_URL;
         break;
     default:
-        api = ''
+        api = "";
 }
 
 const App = () => {
-    const [state, setState] = useState();
-
-    useEffect(() => {
-        fetch(`${api}/hello_world`)
-            .then((response) => response.json())
-            .then((response) => setState(response))
-            .catch((e) => {
-                console.log(e);
-            });
-    }, []);
-
-    console.log(state);
+    const couponButtonOnClick = () => {
+        fetch(`${api}/send_gifts`).catch((e) => {
+            console.log(e);
+        });
+    };
 
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                {state && <p>FetchData:{state.text}</p>}
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
+            <ClippedDrawerAppBar />
+            <CouponButton couponButtonOnClick={couponButtonOnClick} />
         </div>
     );
 };
