@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useState } from "react";
 import ClippedDrawerAppBar from "./components/clippedDrawerAppBar";
 import CouponButton from "./components/couponButton";
 
@@ -18,26 +16,11 @@ switch (window.location.host) {
 }
 
 const App = () => {
-    const [state, setState] = useState();
-
-    // useEffect(() => {
-    //     fetch(`${api}/hello_world`)
-    //         .then((response) => response.json())
-    //         .then((response) => setState(response))
-    //         .catch((e) => {
-    //             console.log(e);
-    //         });
-    // }, []);
-
     const couponButtonOnClick = () => {
-        fetch(`${api}/line_send`)
-            .then((response) => response.json())
-            .then((response) => setState(response))
-            .catch((e) => {
-                console.log(e);
-            });
+        fetch(`${api}/send_gifts`).catch((e) => {
+            console.log(e);
+        });
     };
-    console.log(state);
 
     return (
         <div className="App">
