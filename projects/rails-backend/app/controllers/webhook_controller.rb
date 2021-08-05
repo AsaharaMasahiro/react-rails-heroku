@@ -1,5 +1,6 @@
 class WebhookController < ActionController::API
  require 'line/bot' 
+  private
   def client
     @client ||= Line::Bot::Client.new { |config|
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
@@ -7,6 +8,7 @@ class WebhookController < ActionController::API
     }
   end
 
+  public
   def callback
 
     body = request.body.read
