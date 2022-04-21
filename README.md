@@ -1,15 +1,17 @@
 
-# DailyReport <img src="https://user-images.githubusercontent.com/57471744/164414979-a79bccae-40e3-46fe-a5c9-74f0e23549f1.png" width="20">
+# DailyReport <img src="https://user-images.githubusercontent.com/57471744/164414979-a79bccae-40e3-46fe-a5c9-74f0e23549f1.png" width="30">
 
 ## 起動方法
 
 ### フロント
 `npm start`
 <br/>
+<br/>
 Open http://localhost:8000 with your browser to see the result.
 
 ### バックエンド
 `cd src/server && node server.js` 
+<br/>
 <br/>
 Open http://localhost:3000 with your server to see the result.
 
@@ -19,6 +21,7 @@ Open http://localhost:3000 with your server to see the result.
 node v14.17.3
 npm 6.14.13
 
+<br/>
 ## 開発注意点
 
 -  hooks の memo を使用して、無駄な再レンダリングを避ける作りにする
