@@ -1,34 +1,119 @@
-# 環境
+
+
+# 起動方法
+
+## フロント
+`npm start` 
+Open http://localhost:8000 with your browser to see the result.
+
+## バックエンド
+`cd src/server && node server.js` 
+Open http://localhost:3000 with your server to see the result.
+
+
+# バージョン
 
 node v14.17.3
 npm 6.14.13
 
-# アーキテクチャ
+# 開発環境
+
+1・React
+
+-  対応ライブラリが多く、リッチな UI を実装できるため
+-  DOM 操作のパフォーマンスチューニングを自動でしてくれるため
+-  コンポーネント指向であり、再利用性と拡張性が高いため
+-  TypeScript との相性が vue.js より良いため
+
+2・TypeScript
+
+-  型宣言をすることで、開発効率、コードの安全性と可読性を高めるため
+-  ビルドエラーを事前に解決することで修正コストを下げるため
+
+3・Next.js
+
+-  ssg にする(動的コンテンツ以外)ことで、初回レンダリングの読み込みを早くするため
+-  ランタイムで画像の最適化を行ってくれるため(next-image)
+-  ISR の実現と動的ルーティングを楽にするため
+
+4・Tailwind CSS
+
+-  長期運用を見越した時に、他の CSS ライブラリよりも仕様変更にも対応しやすいため
+-  CSS のクラス命名をスキップすることで、スピディーに開発を行うため
+-  クラス名を考える必要がないため
+-  コンパイルが早く開発体験が良いため
+
+5・Styled Component
+
+-  疑似要素が必要な複雑な UI を実装する時に使用するため
+
+6・react-query
+
+-  リクエスト結果をキャッシュし、無駄なリクエストを避けて表示パフォーマンスを高めるため
+
+7・husky + lint-staged
+
+-  コードの品質担保のため push・commit 前に lint と type-check を走らせる
+
+8・Jest(時間があれば対応予定)
+
+-  テストを行うことで、プログラムの品質を保証するため
+-  仕様変更時のエラーをなくすため
+
+# Architecture
+
+クリーンアーキテクチャライクな設計を採用した。クリーンアーキテクチャを採用する利点として下記が挙げられる
+
+-  変更に強いこと
+-  理解しやすいこと
+-  再利用しやすいこと
+
+今回の開発ではドメイン知識がそこまで複雑ではない + 開発工数の削減という観点から厳密にはしておらず、責務の切り分けを行いたいという観点からクリーンアーキテクチャライクな設計にした
 
 src</br>
-├── actions
-├── components
-├── context
-├── images  
-├── mockData  
-├── pages  
-├── server  
-├── services  
-├── theme  
-├── types
-├── utils
-└── presentation
+　　　 ├── test  
+　　　 ├── components 　  
+　　　 ├── domain  
+　　　 ├── hooks  
+　　　 ├── lib  
+　　　 ├── mocks  
+　　　 ├── services  
+　　　 └── pages
 
-# Development environment
+### test
 
-## eslint + prettier の導入
+-  API コールのテスト
 
-import の順番を自動ソート
-セミコロン有無の統一
-タブの間隔統一
-型エラーの表示
+### components
 
-## husky + lint staged の導入
+-  UI コンポーネントを定義
 
-コードの品質担保のため push・commit 前に lint と type-check を走らせる
-\*commit と push が少し遅くなっているので注意d
+### domain
+
+-  ドメインモデルとドメインロジック
+
+### hooks
+
+-  汎用的な hooks と API コールに関するカスタムフックを定義
+
+### lib
+
+-  例外クラスと API クライアントクラス
+
+### mocks
+
+-  テストやローカル検証用のモックオブジェクト
+
+### services
+
+-  API コール系の処理をアプリケーションサービスとして定義
+
+### pages
+
+-  Next.js における自動ルーティングのため pages に index 定義
+
+# その他チャレンジポイント
+
+-  hooks の memo を使用して、無駄な再レンダリングを避ける作りにする
+-  番組表の取得件数が多かった時にバックエンドの負荷を防ぐためローカルキャッシュを行うフェッチングライブラリ採用(react-query)
+-  今後の運用を考え、変更に強く属人化しない設計にしたいと考えクリーンアーキテクチャライクな設計を採用
