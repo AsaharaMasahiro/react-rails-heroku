@@ -1,18 +1,15 @@
 
-# DailyReport![icon5](https://user-images.githubusercontent.com/57471744/164414979-a79bccae-40e3-46fe-a5c9-74f0e23549f1.png)
+# DailyReport <img src="https://user-images.githubusercontent.com/57471744/164414979-a79bccae-40e3-46fe-a5c9-74f0e23549f1.png" width="20">
 
 ## 起動方法
-<br/>
 
 ### フロント
 `npm start`
-<br/>
 <br/>
 Open http://localhost:8000 with your browser to see the result.
 
 ### バックエンド
 `cd src/server && node server.js` 
-<br/>
 <br/>
 Open http://localhost:3000 with your server to see the result.
 
@@ -21,7 +18,6 @@ Open http://localhost:3000 with your server to see the result.
 
 node v14.17.3
 npm 6.14.13
-<br/>
 
 ## 技術選定
 1・React 
@@ -55,7 +51,6 @@ npm 6.14.13
 
 7・husky + lint-staged
 -  push・commit 前に lint と type-check を走らせ、コードの品質を担保するため
-
 
 ## アーキテクチャ
 
@@ -123,7 +118,6 @@ src</br>
 
 -  使用頻度の高い型を定義
 
-<br/>
 ## 開発注意点
 
 -  hooks の memo を使用して、無駄な再レンダリングを避ける作りにする
