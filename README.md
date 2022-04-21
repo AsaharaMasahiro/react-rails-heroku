@@ -31,4 +31,4 @@ import の順番を自動ソート
 ## husky + lint staged の導入
 
 コードの品質担保のため push・commit 前に lint と type-check を走らせる
-\*commit と push が少し遅くなっているので注意
+\*commit と push が少し遅くなっているので注意d
