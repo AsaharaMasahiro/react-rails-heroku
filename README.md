@@ -1,14 +1,18 @@
 
-# DailyReport
+# DailyReport![icon5](https://user-images.githubusercontent.com/57471744/164414979-a79bccae-40e3-46fe-a5c9-74f0e23549f1.png)
+
 ## 起動方法
+<br/>
 
 ### フロント
 `npm start`
+<br/>
 <br/>
 Open http://localhost:8000 with your browser to see the result.
 
 ### バックエンド
 `cd src/server && node server.js` 
+<br/>
 <br/>
 Open http://localhost:3000 with your server to see the result.
 
@@ -17,6 +21,7 @@ Open http://localhost:3000 with your server to see the result.
 
 node v14.17.3
 npm 6.14.13
+<br/>
 
 ## 技術選定
 1・React 
@@ -42,14 +47,14 @@ npm 6.14.13
 -  DailyReportはモバイル端末でも使用することが多く、モバイルでも快適に使用できるようにするため
 
 7・eslint + prettier
-- import の順番を自動ソート
+- import の順番を自動ソートし、視認性を上げるため
   - import順番が重要なライブラリに関しては、スルー
 - セミコロン有無の統一
 - タブの間隔統一
-- 型・推奨されていない構文エラー表示
+- 型・推奨されていない構文エラー表示するため
 
 7・husky + lint-staged
--  コードの品質担保のため push・commit 前に lint と type-check を走らせる
+-  push・commit 前に lint と type-check を走らせ、コードの品質を担保するため
 
 
 ## アーキテクチャ
@@ -69,38 +74,56 @@ src</br>
 
 ### actions
 
--  外部サービスへのアクション関数を定義する
+-  外部サービスへのアクション関数を定義
 
 ### alert
 
--  swalライブラリに使用するalert文を定義する
+-  swalライブラリに使用するalert文を定義
 
 ### components
 
--  UIライブラリ
+-  UIを定義
 -  アトミックデザインを採用
-  -
+  - atoms
+    - ロジックは置かない
+    - 独立したコンポーネントにする
+  - molecules
+    - モジュールごとにフォルダを分ける 
 
-### hooks
+### context
 
--  汎用的な hooks と API コールに関するカスタムフックを定義
+-  globalなcontextを定義
 
-### lib
+### images
 
--  例外クラスと API クライアントクラス
+-  使用する画像データ
 
-### mocks
+### mockData
 
 -  テストやローカル検証用のモックオブジェクト
 
-### services
-
--  API コール系の処理をアプリケーションサービスとして定義
-
 ### pages
 
--  Next.js における自動ルーティングのため pages に index 定義
+-  pageを構成する
+-  Gatsby.jsはpagesのファイルがそのままパスになる
 
+### server
+
+-  apiサーバー(Node.js)
+
+### services
+
+-  汎用的な関数を定義
+
+### theme
+
+-  アプリ全体のフォント・カラーなどを定義
+
+### types
+
+-  使用頻度の高い型を定義
+
+<br/>
 ## 開発注意点
 
 -  hooks の memo を使用して、無駄な再レンダリングを避ける作りにする
