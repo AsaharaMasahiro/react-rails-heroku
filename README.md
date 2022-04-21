@@ -1,53 +1,34 @@
-# Awesome-name
+# 環境
 
-![Badge Status](https://ci-as-a-service)
+node v14.17.3
+npm 6.14.13
 
-OverviewOverviewOverview
+# アーキテクチャ
 
-## Description
+src</br>
+├── actions
+├── components
+├── context
+├── images  
+├── mockData  
+├── pages  
+├── server  
+├── services  
+├── theme  
+├── types
+├── utils
+└── presentation
 
-DescriptionDescriptionDescription
-DescriptionDescriptionDescription
-DescriptionDescriptionDescription
+# Development environment
 
-***DEMO:***
+## eslint + prettier の導入
 
-![Demo](https://image-url.gif)
+import の順番を自動ソート
+セミコロン有無の統一
+タブの間隔統一
+型エラーの表示
 
-## Features
+## husky + lint staged の導入
 
-- Awesome function
-- Awesome UI
-- ...
-
-For more information, see `awesome-tool --help`.
-
-## Requirement
-
-- Requirement
-- Requirement
-- Requirement
-
-## Usage
-
-1. Usage
-2. Usage
-3. Usage
-
-## Installation
-
-    $ git clone https://github.com/b4b4r07/awesome-tool
-
-## Anything Else
-
-AnythingAnythingAnything
-AnythingAnythingAnything
-AnythingAnythingAnything
-
-## Author
-
-[@b4b4r07](https://twitter.com/b4b4r07)
-
-## License
-
-[MIT](http://b4b4r07.mit-license.org)
+コードの品質担保のため push・commit 前に lint と type-check を走らせる
+\*commit と push が少し遅くなっているので注意
