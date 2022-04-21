@@ -1,22 +1,22 @@
 
+# DailyReport
+## 起動方法
 
-# 起動方法
-
-## フロント
+### フロント
 `npm start` 
 Open http://localhost:8000 with your browser to see the result.
 
-## バックエンド
+### バックエンド
 `cd src/server && node server.js` 
 Open http://localhost:3000 with your server to see the result.
 
 
-# バージョン
+## バージョン
 
 node v14.17.3
 npm 6.14.13
 
-# 開発環境
+## 開発環境
 
 1・React
 
@@ -60,7 +60,7 @@ npm 6.14.13
 -  テストを行うことで、プログラムの品質を保証するため
 -  仕様変更時のエラーをなくすため
 
-# Architecture
+## アーキテクチャ
 
 クリーンアーキテクチャライクな設計を採用した。クリーンアーキテクチャを採用する利点として下記が挙げられる
 
@@ -112,7 +112,7 @@ src</br>
 
 -  Next.js における自動ルーティングのため pages に index 定義
 
-# その他チャレンジポイント
+## 開発注意点
 
 -  hooks の memo を使用して、無駄な再レンダリングを避ける作りにする
 -  番組表の取得件数が多かった時にバックエンドの負荷を防ぐためローカルキャッシュを行うフェッチングライブラリ採用(react-query)
